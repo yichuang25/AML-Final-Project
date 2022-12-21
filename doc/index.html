@@ -1,0 +1,465 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: white;
+    --window-border: none;
+    --search-select-bg-color: #575c61;
+    --active-file-bg-color: #f1f4f5;
+    --item-hover-bg-color: #f1f4f5;
+    --item-hover-text-color: black;
+    --control-text-color: #555;
+}
+
+@include-when-export url(https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css);
+
+html {
+    font-size: 12pt;
+}
+
+#write {
+    font-family: "STIX2Text", "Times New Roman", "serif";
+    line-height: 1.5em;
+    padding: 10%;
+    padding-top: 5%;
+}
+
+.file-list-item-summary {
+    height: 36px;
+}
+
+.file-list-item {
+    padding-top: 18px !important;
+    padding-bottom: 18px;
+}
+
+#sidebar-loading-template.file-list-item {
+    padding-top: 0 !important;
+}
+
+a, a:visited {
+    color: #a00;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+h1  {
+    font-size: 2.4em;
+}
+
+#write h1  {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5  {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+pre, code {
+    font-family: 'Latin Modern Mono Light', "Latin Modern Mono", monospace !important;
+}
+
+.footnotes {
+    display: list-item;
+    margin-left: 1em;
+}
+
+.md-fences {
+    border: 1px solid;
+}
+
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
+
+.CodeMirror-linenumber {
+    color: #333;
+}
+
+*.in-text-selection,
+::selection,
+.CodeMirror-selected {
+    background: var(--search-select-bg-color);
+    color: var(--search-select-text-color) !important;
+    text-shadow: none;
+}
+
+a.md-toc-inner {
+    color: var(--text-color);
+}
+
+.cm-s-typora-default .cm-link {
+    color: #a00;
+    text-decoration: underline;
+}
+
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property {
+    color: black;
+}
+
+#typora-source .CodeMirror-lines {
+    -webkit-font-smoothing: auto;
+    max-width: 1000px;
+}
+
+.md-def-name:before,
+.md-def-name:after {
+    color: #2d2d2d;
+}
+
+sup.md-footnote {
+    background-color: initial;
+    color: inherit;
+}
+
+mark {
+    background: #fff387;
+}
+
+td, th {
+    border: 1px solid;
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
+/*table tr[cid]:first-child > td {
+    border-top: 3px double;
+}*/
+
+th {
+    border-bottom: 0;
+    padding-top: 2px;
+    background: #575c61;
+    border-color: #333;
+    color: #f3f3f3;
+}
+
+pre.md-meta-block {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+
+.task-list-item input:before {
+    content: '\221A';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before{
+    color: inherit;
+}
+
+.md-task-list-item > input {
+    top: auto;
+    margin-left: -1.1em;
+    font-size: 1.3em;
+    margin-top: 0px;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item input:before {
+    content: '\2610';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.md-task-list-item input:checked:before,
+.md-task-list-item input[checked]:before{
+    color: inherit;
+    content: '\2611';
+}
+
+.task-list-item {
+    padding-left: 1.5em;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 0.25em 24px;
+    position: relative;
+    color: #383838;
+    border-left: 2px solid;
+    
+}
+
+#write > blockquote {
+    padding: 0.25em 30px;
+    margin-left: -32px;
+    width: calc(100% + 32px);
+}
+
+#write >  .md-fences-with-lineno {
+    margin-left: -33px;
+    color: black;
+}
+
+.CodeMirror-linenumber {
+    min-width: 25px;
+}
+
+.md-header {
+    font-size: inherit !important;
+}
+
+/*blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}*/
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>AML Final Project Report</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1>
+  AML Final Project Report
+</h1><h1 id='introduction'><span>Introduction</span></h1><p><span>Breast cancer is the most common cancer among women in the world. It accounts for 25% of all cancer cases and affected over 2.1 Million people in 2015 alone. These cells usually form tumors that can be seen via X-ray or felt as lumps in the breast area.</span></p><p><span>In this project, we will apply machine learning models to help classify benign or malicious tumors through the dataset from Breast Cancer Wisconsin (Diagnostic)</span><sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup><span>. We will use logistic regression, support vector machine, decision tree, and boosting techniques to approach the classification problem.</span></p><h1 id='data-preprocessing'><span>Data Preprocessing</span></h1><p><span>The data set contains 30 features after dropping meaningless features such as the patient&#39;s ID in the data exploration process. To eliminate the multicollinearity of the features, we computed the correlation matrix and removed the features that caused more than 0.95 correlations. During data exploration, we also noticed that the data set was imbalanced. There are 62.7% benign samples and 37.3% malicious samples. We will apply to stratify technique during the train test split process and adopt the f-1 score as the key metric. We also employed sampling methods such as oversampling or SMOTE to increase the number of samples.</span></p><h1 id='machine-learning-models'><span>Machine Learning Models</span></h1><h2 id='logistic-regression'><span>Logistic Regression</span></h2><p><span>After dropping the highly correlated features, logistic regression is a desirable and simple machine learning model to apply to predict categorical targets, which are benign and malicious tumors. In this section, we design and implement simple logistic regression and logistic regression with regularization, such as L1, L2, and both. We applied a grid search with cross-validation to discover the best hyperparameter for each model. Because the dataset is imbalanced, the f1 score is a good metric for cross-validation. The performance of each model on test data is below:</span></p><figure><table><thead><tr><th style='text-align:left;' >&nbsp;</th><th><span>Accuracy</span></th><th><span>Precision</span></th><th><span>Recall</span></th><th><span>F1 Score</span></th><th><span>AUC</span></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>Simple</span></td><td><span>0.947</span></td><td><span>0.974</span></td><td><span>0.881</span></td><td><span>0.925</span></td><td><span>0.9511</span></td></tr><tr><td style='text-align:left;' ><span>Lasso</span></td><td><span>0.982</span></td><td><span>1</span></td><td><span>0.952</span></td><td><span>0.976</span></td><td><span>0.9980</span></td></tr><tr><td style='text-align:left;' ><span>Ridge</span></td><td><span>0.982</span></td><td><span>1</span></td><td><span>0.952</span></td><td><span>0.976</span></td><td><span>0.9977</span></td></tr><tr><td style='text-align:left;' ><span>Elastic Net</span></td><td><span>0.982</span></td><td><span>1</span></td><td><span>0.952</span></td><td><span>0.976</span></td><td><span>0.9960</span></td></tr></tbody></table></figure><p><span>From the table above, confusion matrix and ROC plot, regularization helps improve the model from all metrics. Compared with the model with regularization, Lasso regression has a higher AUC score. The top 5 weighted features in the lasso regression model are area_worst, concave points_mean, texture_worst, concave points_worst, and symmetry_worst.</span></p><h2 id='support-vector-machine-svm'><span>Support Vector Machine (SVM)</span></h2><p><span>For support vector machines, we explored primal and dual SVMs to understand which model would perform better on our dataset. The accuracy of baseline Primal SVM and Dual SVM is 0.964 and 0.984. Both models perform well, and Dual SVM has a greater f1 score. And after hyperparameter tuning through grid search, the accuracy of the Dual SVM model changed to 0.974. Considering the accuracy of the test dataset was quite high, it seems that choosing to use SVMs has also helped the model with overfitting. </span></p><p><span>For both models, texture_worst was the most important feature by SHAP value, with the primal SVM having “conacve_points_mean” and “concavity_worst” as the second and third, respectively, while the dual SVM had “concavity_mean” and “concave_points_mean” as its second and third by SHAP value. </span></p><h2 id='decision-trees'><span>Decision Trees</span></h2><p><span>Our investigation of tree-based models started with decision trees and expanded to balanced decision trees. Since the dataset was slightly skewed in the number of classes represented, we applied random oversampling to upsample the minority class, as there were not enough data points to give a great score estimate. We noticed a performance improvement by doing this and applying the balanced decision tree with a high average precision score of 0.92 compared to 0.82, with the f1 score being 0.94. When exploring SHAP values, the features that contributed most to the results were ‘concave points_mean’, ‘concave points_worst’, and ‘area_se.’</span></p><h2 id='boosting'><span>Boosting</span></h2><p><span>We then applied and compared models such as Random Forest, XG boost, and Histogram gradient boosting. The following models perform well for binary classification problems such as ours, which is to classify a benign or malignant cancer. We tune our hyper-parameters for each of these models by using Grid Search CV and varying different impactful hyper-parameters. In order to evaluate our models, we predict the metric score and output the precision, recall, and F1 score. Finally, we use the ROC curve to compare the different models. The accuracy for each model is very high, and the precision, recall, and F1 score are also excellent. The histogram gradient boosting is one of the greatest, with accuracy, precision, recall, and F1 score of around 97 percent and the shortest time to compute (6 seconds). We added its confusion matrix below. In addition, we calculated the feature importance using the SHAP library. The importance of the features differs in their measure across the different models; however, the top ones remain the “area worst,” “concave points mean, “ and “concave points worst”.</span></p><h1 id='conclusion'><span>Conclusion</span></h1><p><span>In conclusion, we have high accuracy all around, which may be due to the nature of our dataset. Our methods have also minimized overfitting, with all models performing well on both the test and the training dataset. Additionally, we know from the SHAP analysis of each model that the features marked as most important changed based on the model, which indicates that the nature of the model did indeed change the outcome. </span></p><p><span>XGboost produces the best model (auc=0.9964), but several models with accuracies were in the same range. It is our belief that fairly straightforward, and multiple models could be put into products with comparable results.</span></p><h1 id='appendix-i'><span>Appendix I</span></h1><h2 id='performance-of-logistic-regression'><span>Performance of Logistic Regression</span></h2><p><img src="assets/9b4DvhDWF9ZOKjQU_bW9b8-I7wQKL0KUhHGC_xZ1GOMNS0wp_cs91hWgTa98w_4KM3007DjiKBerIVg1Vx40fqHwa9B60-DopzkcEy0C2Czdvukujz1BxDv_3Mxbw4BothUrk5XZBJYSLHMbvSc6AqiNL2z-fExCp540D9FEH_RN-J1AclRxHqTtT-pHOQ.png" referrerpolicy="no-referrer" alt="img"></p><p><img src="assets/c5XGZxy3LGov4Esu-pm7_BaxE9aYLE5FMCvjDaM9B6tFvxzRLUIoWn1TMNfkX7E0zFCJ0T66R68oj6X54AV5RukmyNvi5juMbrm9wG1HDQyx4Ag8-atDS8_K1Hp3wZpxLpUsQp4TuhZciFCfsYles5QF1Cv9BNVqB8yfKNeKYBfuFgbiQctmU9KXj4nQLg.png" referrerpolicy="no-referrer" alt="img"></p><p><img src="assets/u2KDPU-LRxDiOXxG9VUUqnC2JRijL-T0FBfPVXwG8eurd2LNTxnvpKqHIzQoUrLXKeG6gPT2XYU0NQG9VPcnNsn3DVpkjUtaeyuURr9oCdzQ52sR1wujXdbkG195nzfIQXH-o2G5NSVG70jj6qnc4T7bDhxcGd2LHUThQlerrL29tCRYaQv1O6hqazuSkw.png" referrerpolicy="no-referrer" alt="img"></p><h2 id='performance-of-svm'><span>Performance of SVM</span></h2><p><img src="assets/MdLt9e3YvNxzrxrjwL4DoySTs2EI1lhMusxvufV26m6dzSl8xuL1s3LXYh7bryUjcpjj1Tq6bwaInkJIQP8RbAnZfNSU5ydVJoAlwWtvA5xbyWaU3EPWpYkrNkWFujdCF-89J6jnBDa696lYWB_w6Eezm1xnjwBQ5ISh4nxlXRYeBE3n_KZzox27nLAe2w.png" referrerpolicy="no-referrer" alt="img"></p><p><img src="assets/JF6ocA2k24v-QKfPMDsvQipAaXynjAZEnGDewM8cYUlAyEFEnMQ7jLJMl1iPBemsWUnX2vwxuZu4s5XQs1RdWywxVaUyN8UcmtBAkw8n0dgx7mCKifRLiBNiWS6kYph--ul2DGWMRwHUiF_f9MKoLCwZLSK70WDV-OM9eVT8X3_f0VNXc7Omf6e4--25XQ.png" referrerpolicy="no-referrer" alt="img"></p><p><img src="assets/TSwAMLIu5foCduPM8rSn0DdGxds5v1yt-ZSPm4fT_DgIoGuBZhLCkoI4AaCseJQb9pek5xupy20Ndk2vs_62p4crlnYcfJVUXPG3AWGOpB2O9diCN6LYfmbLQ3nQTXE1n_wryJuexfIN9XaTllotbZALFVs_wC-QiPL47NZKZqoZN_e-iUTy4IjTifUTvQ.png" referrerpolicy="no-referrer" alt="img"></p><h2 id='performance-of-balanced-decision-tree-with-oversampling'><span>Performance of Balanced Decision Tree with Oversampling</span></h2><p><img src="assets/E5oMH9_vafHd8dbJAvBFj2x0w15-or-gb1duzUx6QI82Y-qFecZy2LUrN0Ex-2LbXThUKzZxmEo8q4g4WGrz9_anN_Pp3X8_Dq8Aen7naBYiuv_G0NHZt5tRxyDvW0Dh8hQf367lXy7Iqvv2NihhLksFyZ-ECHBBX4MneJVOv-UjK7Is4hOvdNNkCobYHw.png" referrerpolicy="no-referrer" alt="img"></p><p><img src="assets/BM49abi576zBqZTBebd3BNOsDSaYX9yN0x5JzjxFrLvnQVmPMOHXnXIvPzzGaSK9SFWNKhILDD96-pDeuXLseMKQ46Clyck9VG1mLZc-OlqNsIzY15nVV_AuJFKfJzGmx56NaHrYB99j_GkggCP0fMowDkyxeMptIkw7MIsOyXHktsP2TZP0ODEYRd9Aiw.png" referrerpolicy="no-referrer" alt="img"></p><h2 id='performance-of-boosting'><span>Performance of Boosting</span></h2><p><img src="assets/SiYa09COlSIhDxl1uf9_RSyC62SHJ4kkh2SGqbBauxX3d4JPYM4FTbxiVa8d0uFs4_5t7J82b2SwNw42QE3vkqz2lPYl2V6_8uy6l91_qUIeSqZQTlwgXK2jts1LV-jGoVOcD-kSUfW7w7HQWOgnlxshT6Ns2HYladPQhUHAHO6knQ0_VDuCjFeWhxWakg.png" referrerpolicy="no-referrer" alt="img"></p><p><img src="assets/nArYZRKL0VVIFOIaHSqJ_SWJHmvnPi0d99SPTa0NBazBwOHnoC2h1_1EnaGTaHAkquuvmvQ3fTQQXG5VLwaKq-kZ3HH-gNp__J7UyaOlGFv_DQalsHmiDmLu_mZ--QtSiiYT-2h0J_bjHbqVMfuxeOWVejk1s49MjL3H9-MMUTx1yhL6HF9bUqSXfIr5dw.png" referrerpolicy="no-referrer" alt="img"></p><p><img src="assets/3zgilc6yLhU2oKs70GGQ9d_G0fKUaY0NhvrGsXO1jR5R6CiNaZDi9A6UH6SVmFopWDdc0uAoNrrxJLpakq4p4qR2xylSq7WwJ_DbOA52Rr7p7vrMBQq2WRMpFxx6as7hrkZ_oZ_PqsjFz46FWXdzeskqFmDj04u1CPE6BfdPMX4A_o7oqznGDBWfopr3vw.png" referrerpolicy="no-referrer" alt="img"></p><div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> <a href='https://www.kaggle.com/datasets/yasserh/breast-cancer-dataset' target='_blank' class='url'>https://www.kaggle.com/datasets/yasserh/breast-cancer-dataset</a><span> </span> <a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div></div></div></div>
+</body>
+</html>
